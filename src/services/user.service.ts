@@ -11,4 +11,22 @@ export default class UserSerivce {
       where: userWhereUniqueInput,
     });
   }
+
+  async users(params: Prisma.UserFindManyArgs) {
+    return this.prismaService.user.findMany(params)
+  }
+
+  async createUser(data: Prisma.UserCreateInput) {
+    return this.prismaService.user.create({
+      data
+    })
+  }
+
+  async deleteUser(params: Prisma.UserDeleteArgs) {
+    return this.prismaService.user.delete(params)
+  }
+
+  async updateUser(params: Prisma.UserUpdateArgs) {
+    return this.prismaService.user.update(params)
+  }
 }
