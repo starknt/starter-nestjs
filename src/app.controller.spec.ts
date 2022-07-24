@@ -1,6 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { PostService } from './services/post.service';
+import PrimaService from './services/prisma.service';
+import UserSerivce from './services/user.service';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -8,15 +11,15 @@ describe('AppController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
-      providers: [AppService],
+      providers: [AppService, UserSerivce, PostService, PrimaService],
     }).compile();
 
     appController = app.get<AppController>(AppController);
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('Post', async () => {
+      expect(await appController.getPublishedPosts()).toStrictEqual([]);
     });
   });
 });
