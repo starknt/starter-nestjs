@@ -14,6 +14,6 @@ async function bootstrap() {
 
   await app.listen(port, host);
 
-  console.log(`\x1b[93m Run in http://${host}:${port}`)
+  console.log(`\x1b[93mRun in http://${host}:${port}`)
 }
 bootstrap();
