@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostService } from './services/post.service';
 import PrimaService from './services/prisma.service';
-import UserSerivce from './services/user.service';
+import UserService from './services/user.service';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -11,7 +11,7 @@ describe('AppController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
-      providers: [AppService, UserSerivce, PostService, PrimaService],
+      providers: [AppService, UserService, PostService, PrimaService],
     }).compile();
 
     appController = app.get<AppController>(AppController);
