@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostService } from './services/post.service';
 import PrimaService from './services/prisma.service';
-import UserSerivce from './services/user.service';
+import UserService from './services/user.service';
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { envSchema } from './config/env.schema';
 import { configurations } from './config';
@@ -30,6 +30,6 @@ const envPath = fs.existsSync(`${process.env.NODE_ENV || 'development'}.env`) ? 
     })
   ],
   controllers: [AppController],
-  providers: [AppService, PrimaService, PostService, UserSerivce],
+  providers: [AppService, PrimaService, PostService, UserService],
 })
 export class AppModule { }

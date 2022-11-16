@@ -1,13 +1,13 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { PostService } from './services/post.service';
-import UserSerivce from './services/user.service';
+import UserService from './services/user.service';
 import { Post as PostModel, User as UserModel } from '@prisma/client'
 
 @Controller()
 export class AppController {
   constructor(
     private postService: PostService,
-    private userService: UserSerivce
+    private userService: UserService
   ) { }
 
   @Get('post/:id')
